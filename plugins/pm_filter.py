@@ -76,8 +76,8 @@ async def pm_text(bot, message):
     if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
     if user_id in ADMINS: return # ignore admins
     await message.reply_text(
-         text=f"<b>ʜᴇʏ {user} 😍 ,\n\nʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ᴍᴏᴠɪᴇs ꜰʀᴏᴍ ʜᴇʀᴇ. ʀᴇǫᴜᴇsᴛ ɪᴛ ɪɴ ᴏᴜʀ <a href=https://telegram.me/+aLArXSwMmKlkN2Nl>ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ</a> ᴏʀ ᴄʟɪᴄᴋ ʀᴇǫᴜᴇsᴛ ʜᴇʀᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ 👇</b>",   
-         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📝 ʀᴇǫᴜᴇsᴛ ʜᴇʀᴇ ", url=f"telegram.me/TeamHMT_Movie")]])
+         text="<b>Dᴇᴀʀ Fʀɪᴇɴᴅ,\n\nYᴏᴜ Cᴀɴ'ᴛ Gᴇᴛ Mᴏᴠɪᴇꜱ Fʀᴏᴍ Hᴇʀᴇ. Fɪʀꜱᴛ Jᴏɪɴ Oᴜʀ Mᴏᴠɪᴇꜱ Gʀᴏᴜᴘ Tʜᴇɴ Sᴇɴᴅ Yᴏᴜʀ Mᴏᴠɪᴇꜱ/Sᴇʀɪᴇꜱ Nᴀᴍᴇ Tʜᴇʀᴇ.</b>",   
+         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("𝗝𝗢𝗜𝗡 & 𝗥𝗘𝗤𝗨𝗘𝗦𝗧 𝗛𝗘𝗥𝗘", url=f"t.me/+7j7EXi8FELQ2MjU9")]])
     )
     await bot.send_message(
         chat_id=LOG_CHANNEL,
