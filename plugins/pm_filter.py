@@ -1250,7 +1250,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://telegram.me/{temp.U_NAME}?startgroup=true')
                 ],[
                     InlineKeyboardButton('Eᴀʀɴ Mᴏɴᴇʏ 💸', callback_data="shortlink_info"),
-                    InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=GRP_LNK)
+                    InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', callback_data='group')
                 ],[
                     InlineKeyboardButton('〄 Hᴇʟᴘ', callback_data='help'),
                     InlineKeyboardButton('⍟ Aʙᴏᴜᴛ', callback_data='about')
@@ -1333,8 +1333,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "about":
         buttons = [[
-            InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=GRP_LNK),
-            InlineKeyboardButton('Sᴏᴜʀᴄᴇ Cᴏᴅᴇ', callback_data='source')
+            InlineKeyboardButton('Sᴏᴜʀᴄᴇ Cᴏᴅᴇ', callback_data='source'),
+            InlineKeyboardButton('Dɪꜱᴄʟᴀɪᴍᴇʀ', callback_data='disclaimer')
         ],[
             InlineKeyboardButton('Hᴏᴍᴇ', callback_data='start'),
             InlineKeyboardButton('Cʟᴏsᴇ', callback_data='close_data')
@@ -1350,6 +1350,28 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+
+
+    elif query.data == "group":
+        buttons = [[
+            InlineKeyboardButton('Lɪᴠᴇ Gʀᴏᴜᴘ', url="t.me/+7j7EXi8FELQ2MjU9"),
+            InlineKeyboardButton('Bᴀᴄᴋᴜᴘ Gʀᴏᴜᴘ', url="t.me/+hS8TPhJcRvtjMWVl")
+        ],[
+            InlineKeyboardButton('Hᴏᴍᴇ', callback_data='start'),
+            InlineKeyboardButton('Nᴇᴡ Rᴇʟᴇᴀꜱᴇᴅ', url="t.me/+kfus7ug5yy8zYzdl")
+        ]]
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.GRP_TXT.format(temp.B_NAME),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+    
     elif query.data == "source":
         buttons = [[
             InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='about')
@@ -1365,6 +1387,56 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+
+    elif query.data == "disclaimer":
+        buttons = [[
+            InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='about'),
+            InlineKeyboardButton('Cᴏɴᴛᴀᴄᴛ', url="t.me/TEAM_SNS_BOT")
+        ]] 
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text=script.DISC_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+
+    elif query.data == "font":
+        buttons = [[
+            InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='extra')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text=script.FONT_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+
+    elif query.data == "tele":
+        buttons = [[
+            InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='extra')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text=script.TELE_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+    
     elif query.data == "manuelfilter":
         buttons = [[
             InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='filters'),
@@ -1428,6 +1500,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "extra":
         buttons = [[
+            InlineKeyboardButton('Fᴏɴᴛꜱ', callback_data='font'),
+            InlineKeyboardButton('Tᴇʟᴇɢʀᴀᴘʜ', callback_data='tele')
+        ],[
             InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='help'),
             InlineKeyboardButton('Aᴅᴍɪɴ', callback_data='admin')
         ]]
